@@ -5,9 +5,49 @@
       .triangle.top(:class="{active: isActive}" :style="{'border-left': scrW + 'px solid transparent'}")
     .content-container(:class="{active: fadeIn}")
       h1 My Skill Set
-      .content
-        .left
-        .right
+      .content(:class="{active: staggerContent}")
+        div
+          h2 UX
+          ul
+            li Wireframing
+            li Rapid Prototyping
+            li User Research
+            li Interaction Design
+        div
+          h2 UI
+          ul
+            li Designing for Responsive / Digital
+            li CSS UI Design
+            li Grid Systems
+            li Interactive State Design
+        div
+          h2 Engineering
+          ul
+            li HTML / CSS / JS
+            li SPA Frameworks / Headless
+            li SEO Best Practices
+            li Wordpress
+        div
+          h2 Product Management
+          ul
+            li Writing Requirements
+            li Agile / Sprint Cycles
+            li Evaluating Business Needs
+            li Strategic Problem Solving
+        div
+          h2 Data Analysis
+          ul
+            li Google Analytics
+            li Optimizely
+            li Qualitative vs. Quantitative
+            li Excel Data Manipulation
+        div
+          h2 Communication
+          ul
+            li Persuasive Writing
+            li Design / UX Advocacy
+            li Cross-Department Translating
+            li Pitch Presentation
       button.next-page(v-on:click="next")
         span.up-next Up Next:
         span {{ nextPage }}
@@ -23,6 +63,7 @@ export default {
     return {
       isActive: false,
       fadeIn: false,
+      staggerContent: false,
       scrW: 0,
       scrY: 0
     }
@@ -45,10 +86,13 @@ export default {
     var self = this
     setTimeout(function () {
       self.isActive = true
-    }, 500)
+    }, 100)
     setTimeout(function () {
       self.fadeIn = true
-    }, 1500)
+    }, 500)
+    setTimeout(function () {
+      self.staggerContent = true
+    }, 500)
     window.addEventListener('resize', this.setTriangle)
   },
   destroyed: function () {
@@ -61,6 +105,9 @@ export default {
   @import '~@/variables.scss'
   .page
     padding: 100px 30px 160px 30px
+    @media (max-width: $mobile)
+      padding: 70px 15px 100px 15px
+      background: lighten($orange, 20%)
   .container
     position: absolute
     top: 0
@@ -68,6 +115,8 @@ export default {
     z-index: 3
     width: 100vw
     height: 100vh
+    @media (max-width: $mobile)
+      display: none
   .triangle
     width: 0
     height: 0
@@ -99,35 +148,58 @@ export default {
     text-transform: uppercase
     font-weight: 300
     letter-spacing: 3px
-    font-size: 24px
+    font-size: 28px
     line-height: 1
     color: lighten(black, 25%)
     margin-bottom: 40px
-  h2
-    font-size: 80px
-    font-weight: 500
-    text-transform: uppercase
-    letter-spacing: 2px
-    border-bottom: 1px dotted lighten(black, 70%)
-    padding-bottom: 30px
-    line-height: 1
-    margin-bottom: 30px
-    color: lighten(black, 15%)
   .content
     display: flex
-    p
+    justify-content: space-between
+    flex-wrap: wrap
+    div
+      width: 30%
+      padding: 30px
+      background: rgba(255,255,255,.9)
+      margin-bottom: 60px
+      opacity: 0
+      box-shadow: 0 3px 3px rgba(0,0,0,0.1)
+      @media (max-width: $mobile)
+        width: 100%
+        margin-bottom: 30px
+    ul
+      list-style-type: none
+      li
+        margin-bottom: 10px
+    &.active
+      div
+        animation-name: staggerIn
+        animation-fill-mode: forwards
+        animation-duration: .3s
+      div:nth-child(2)
+        animation-delay: .5s
+      div:nth-child(3)
+        animation-delay: 1.0s
+      div:nth-child(4)
+        animation-delay: 1.5s
+      div:nth-child(5)
+        animation-delay: 2s
+      div:nth-child(6)
+        animation-delay: 2.5s
+      h2
+        font-size: 18px
+        text-transform: uppercase
+        letter-spacing: 1.5px
+        border-bottom: 1px dotted rgba(0,0,0,0.4)
+        padding-bottom: 20px
+        margin-bottom: 20px
+        line-height: 1
+    h3
+      color: black
+      font-weight: 300
       font-size: 18px
-      line-height: 1.6
-      margin-bottom: 30px
-    .left
-      flex: 0 0 57%
-      margin-right: 5%
-    .right
-      flex: 0 0 38%
-      top: -60px
-      position: relative
-      img
-        max-width: 100%
+      letter-spacing: 3px
+      line-height: 1
+      margin-bottom: 10px
   button.next-page
     cursor: pointer
     outline: none
@@ -152,4 +224,11 @@ export default {
       margin-right: 10px
       top: -2px
       position: relative
+  @keyframes staggerIn
+    from
+      opacity: 0
+      transform: scale(.8)
+    to
+      opacity: 1
+      transform: scale(1)
 </style>

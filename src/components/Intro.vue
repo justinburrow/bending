@@ -9,6 +9,8 @@
         p It sounds like Joybird is looking to staff a role that would benefit from the breadth of experience I've been fortunate to accumulate throughout my career.
 
         p I've put together some information about my skill set and what I'm looking for, as well as some case study examples of my work to hopefully provide you with enough information to get a sense of whether I'd be a great fit for this position.
+        p.note Also, I really love&nbsp;
+          a(href="https://joybird.com/dining-tables/hesse-dining-table/" target="_blank") this dining table.
       .right
         img(src="~@/assets/jb.jpg")
     button.next-page(v-on:click="next")
@@ -35,11 +37,14 @@ export default {
   @import '~@/variables.scss'
   .page
     padding: 100px 30px 160px 30px
+    height: 100%
+    @media (max-width: $mobile)
+      padding: 70px 15px 100px 15px
   h1
     text-transform: uppercase
     font-weight: 300
     letter-spacing: 3px
-    font-size: 24px
+    font-size: 28px
     line-height: 1
     color: lighten(black, 25%)
     margin-bottom: 40px
@@ -53,19 +58,38 @@ export default {
     line-height: 1
     margin-bottom: 30px
     color: lighten(black, 15%)
+    @media (max-width: $mobile)
+      text-align: center
+      line-height: 1.2
+      font-size: 53px
   .content
     display: flex
+    @media (max-width: $mobile)
+      flex-wrap: wrap
+      flex-direction: column-reverse
     p
       font-size: 18px
       line-height: 1.6
       margin-bottom: 30px
+      &.note
+        font-size: 12px
+        line-height: 1.4
+        font-weight: bold
+      a
+        color: $red
     .left
       flex: 0 0 57%
       margin-right: 5%
+      @media (max-width: $mobile)
+        flex: 0 0 100%
     .right
       flex: 0 0 38%
       top: -60px
       position: relative
+      @media (max-width: $mobile)
+        flex: 0 0 100%
+        top: 0
+        margin-bottom: 30px
       img
         max-width: 100%
   button.next-page
@@ -84,6 +108,8 @@ export default {
     margin-left: auto
     margin-right: auto
     display: block
+    @media (max-width: $mobile)
+      margin-bottom: 50px
     &:hover
       background: darken($lightblue, 10%)
     span.up-next

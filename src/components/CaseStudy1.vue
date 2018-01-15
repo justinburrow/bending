@@ -42,11 +42,14 @@ export default {
     height: 100%
     background: $red
     padding: 100px 30px 160px 30px
+    @media (max-width: $mobile)
+      padding: 70px 15px 100px 15px
+      height: auto
   h1
     text-transform: uppercase
     font-weight: 300
     letter-spacing: 3px
-    font-size: 24px
+    font-size: 28px
     line-height: 1
     color: $white
     margin-bottom: 15px
@@ -73,16 +76,26 @@ export default {
     background: white
     padding: 50px 30px
     display: flex
+    @media (max-width: $mobile)
+      flex-wrap: wrap
+      flex-direction: column-reverse
+      padding: 30px
+
     p
       font-size: 18px
       line-height: 1.6
       margin-bottom: 30px
+      @media (max-width: $mobile)
+        font-size: 14px
       &.note
         font-size: 12px
         line-height: 1.4
     .right
       flex: 0 0 57%
       margin-left: 5%
+      @media (max-width: $mobile)
+        flex: 0 0 100%
+        margin-left: 0
     .video-container
       position: relative
       padding-bottom: 56.25%
@@ -98,6 +111,9 @@ export default {
     .left
       flex: 0 0 38%
       position: relative
+      @media (max-width: $mobile)
+        flex: 0 0 100%
+        margin-bottom: 30px
       img
         max-width: 100%
   button.next-page
@@ -106,7 +122,7 @@ export default {
     padding: 15px 30px
     background: $lightblue
     color: $white
-    margin-top: 60px
+    margin-top: 30px
     text-transform: uppercase
     font: 500 18px 'Oswald', sans-serif
     letter-spacing: 2px
@@ -115,6 +131,8 @@ export default {
     transition: all 0.3s ease
     margin-left: auto
     margin-right: auto
+    @media (max-width: $mobile)
+      margin-bottom: 50px
     display: block
     &:hover
       background: darken($lightblue, 10%)

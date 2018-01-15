@@ -98,6 +98,9 @@ export default {
   .aligner-item
     max-width: 1600px
     text-align: center
+    @media (max-width: $mobile)
+      img
+        max-width: 80%
   p
     font: 300 120px 'Oswald', sans-serif
     text-transform: uppercase
@@ -132,4 +135,5 @@ export default {
     transition: all 0.3s ease
     &:hover
       background: darken($lightblue, 10%)
+
 </style>

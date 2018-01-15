@@ -37,13 +37,16 @@ export default {
     display: flex
     justify-content: space-between
     align-items: center
-    transform: translateY(-100%)
+    transform: translateY(-150%)
     transition: transform 0.3s ease
     opacity: 1 !important
     z-index: 15
     flex-wrap: wrap
     &.show
       transform: translateY(0)
+    @media (max-width: $mobile)
+      position: fixed
+      padding: 10px 15px
   #navdots
     position: relative
     display: inline-block
@@ -53,6 +56,8 @@ export default {
     width: 50%
     display: flex
     justify-content: space-between
+    @media (max-width: $mobile)
+      width: 100%
     .dot
       position: relative
       display: block
@@ -101,6 +106,8 @@ export default {
     font: 500 12px 'Oswald', sans-serif
     letter-spacing: 2px
     transition: all 0.5s ease
+    @media (max-width: $mobile)
+      display: none
     &:hover
       background: $white
       color: $darkblue
