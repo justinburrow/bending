@@ -59,6 +59,7 @@ export default {
 </script>
 
 <style lang="sass">
+  @import '~@/variables.scss'
   html
     box-sizing: border-box
 
@@ -66,6 +67,12 @@ export default {
     margin: 0
     padding: 0
     box-sizing: inherit
+
+  body
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif
+
+  h1,h2,h3,h4,h5,h6
+    font-family: 'Oswald', sans-serif
 
   #content
     padding-top: 50px

@@ -1,6 +1,5 @@
 <template lang="pug">
   #section
-    h1 This is the container for all sections
     router-view
 </template>
 
@@ -11,5 +10,5 @@ export default {
 </script>
 
 <style scoped lang="sass">
-
+  @import '~@/variables.scss'
 </style>

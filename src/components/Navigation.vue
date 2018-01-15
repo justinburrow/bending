@@ -26,15 +26,17 @@ export default {
 </script>
 
 <style scoped lang="sass">
+  @import '~@/variables.scss'
   #Navbar
     position: fixed
     top: 0
     width: 100%
     background: rgba(0,0,0,0.3)
     color: white
-    padding: 5px
+    padding: 10px 30px
     display: flex
     justify-content: space-between
+    align-items: center
     transform: translateY(-100%)
     transition: transform 0.3s ease
     &.show
@@ -78,4 +80,9 @@ export default {
           background-color: white
           -webkit-transform: scale(0.4)
           transform: scale(0.4)
+  button
+    padding: 5px 10px
+    border: 1px solid rgba(255,255,255,0.3)
+    font: 600 12px 'Oswald', sans-serif
+    letter-spacing: .5px
 </style>

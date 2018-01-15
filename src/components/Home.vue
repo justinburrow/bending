@@ -16,6 +16,7 @@ export default {
 </script>
 
 <style lang="sass">
+  @import '~@/variables.scss'
   #Navbar
     transform: translateY(-100%)
 </style>
