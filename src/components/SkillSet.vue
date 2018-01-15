@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'One'
+  name: 'SkillSet'
 }
 </script>
 

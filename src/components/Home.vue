@@ -15,6 +15,7 @@ export default {
 }
 </script>
 
-<style scoped lang="sass">
-
+<style lang="sass">
+  #Navbar
+    transform: translateY(-100%)
 </style>

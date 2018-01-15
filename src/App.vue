@@ -1,8 +1,8 @@
 <template lang="pug">
   div#app
-    Navigation(v-on:next="increment", v-on:previous="decrement")
-    h2 {{ currentPage }}
-    router-view(v-on:next="increment", v-on:previous="decrement")
+    Navigation(v-on:next="increment" v-on:previous="decrement" v-on:goto="goto(id)" :child-routes="allRoutes" :current-page="currentPage" :class="{show: showNav}" @goto="goto")
+    #content
+      router-view(v-on:next="increment" v-on:previous="decrement")
 </template>
 
 <script>
@@ -12,7 +12,8 @@ export default {
   data () {
     return {
       currentPage: 0,
-      allRoutes: []
+      allRoutes: [],
+      showNav: false
     }
   },
   components: {
@@ -25,16 +26,20 @@ export default {
     decrement: function () {
       this.currentPage--
     },
+    goto: function (goto) {
+      this.currentPage = goto
+    },
     changePage: function (page) {
       var router = this.$router
+      var self = this
       this.allRoutes.forEach(function (route) {
         if (page === 0) {
-          router.push('/')
+          router.push({name: 'Home'})
+          self.showNav = false
         } else if (route.meta.id === page) {
           var targetPage = route.name
-          router.push('page/' + targetPage)
-        } else {
-          router.push({path: '/page'})
+          router.push({name: targetPage})
+          self.showNav = true
         }
       })
     }
@@ -54,11 +59,14 @@ export default {
 </script>
 
 <style lang="sass">
-  #app
-    font-family: 'Avenir', Helvetica, Arial, sans-serif
-    -webkit-font-smoothing: antialiased
-    -moz-osx-font-smoothing: grayscale
-    text-align: center
-    color: #2c3e50
-    margin-top: 60px
+  html
+    box-sizing: border-box
+
+  *, *::before, *::after
+    margin: 0
+    padding: 0
+    box-sizing: inherit
+
+  #content
+    padding-top: 50px
 </style>
