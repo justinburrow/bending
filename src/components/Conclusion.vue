@@ -30,7 +30,7 @@ export default {
   @import '~@/variables.scss'
   .page
     padding: 100px 30px 160px 30px
-    height: 100%
+    height: auto
     @media (max-width: $mobile)
       padding: 70px 15px 100px 15px
   h2

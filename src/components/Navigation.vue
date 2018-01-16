@@ -4,7 +4,7 @@
     ul#navdots
       li.dot(v-for="page in childRoutes" v-on:click="goto(page.meta.id)" v-bind:class=" { current: page.meta.id === currentPage}")
         <a>{{ page.meta.prettyName }}</a>
-    button(v-on:click="next") NEXT
+    button(v-on:click="next" :class="{hidden: currentPage === 7}") NEXT
 </template>
 
 <script>
@@ -111,4 +111,6 @@ export default {
     &:hover
       background: $white
       color: $darkblue
+    &.hidden
+      visibility: hidden
 </style>
