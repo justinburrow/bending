@@ -1,18 +1,19 @@
 <template lang="pug">
   .page
-    h1 Case Study #3 - Inline Quick View
-    p.subtitle UX / UI / Product Management / Interaction Design
+    h1 Case Study #4 - Consultant Attribution vs. Direct Checkout
+    p.subtitle UX / UI / Front End / Product Management
     .content
       .left
-        p During a period of roadmapping tech strategy at Beautycounter, I realized we were looking at two years of work that didn't include one bit of a facelift to our current site - which I had found less than stellar from the get-go.  I find often that it's better to show rather than tell when you're trying to articulate the importance of a particular initiative, so I put together a small team to begin working on a redesign proof-of-concept, to show how much more elevated of a site we could have if we invested the resources.
-
-        p As part of this, I considered the tech stack we were on, and decided to try to imagine an eCommerce flow as a single page app - no page reloads, no site slowness.  While we were wireframing this, I realized that it made the concept of a Category page as a means to get to a Product page somewhat irrelevant.  Part of this came with how we designed the Quick View experience.
-
-        p This isn't a new feature by any means - usually it's a modal window that pops when you click "more details" from a category landing page.  But we wanted to do something that had a more sophisticated interaction - even if subtle - to further push the idea of the sophistication of the brand.
-
-      .right
         .video-container
-          iframe(src="https://www.youtube.com/embed/2z-GexHyyl0?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen)
+          iframe(src="https://www.youtube.com/embed/Nava5AoQcfM" frameborder="0" allowfullscreen="")
+        a(href="http://www.justinburrow.com/static-files/checkout-v2-attribution.pdf" target="_blank") Download Attribution interactive states and flows in .pdf format
+      .right
+        p At Beautycounter, the concept of direct sales via Consultants meshing with organic eCommerce presented numerous challenges, specifically at the time of Checkout - if you had a Consultant, but weren't shopping on their direct link, how would they get the attribution for the order?  Likewise, if you didn't like the idea of a Consultant, would you be turned off by seeing such verbiage just before you enter your payment information?
+
+        p We went through many, many sets of wireframes and directions before landing in what is shown in the video to the left.  This is actually a live grab from the current website.
+
+        p I've also attached my wireframes that will hopefully show the level of user flows, states, and considerations that had to be made in order to launch this feature in a way that appeased all stakeholders.
+
     button.next-page(v-on:click="next")
       span.up-next Up Next:
       span {{ nextPage }}
@@ -20,7 +21,7 @@
 
 <script>
 export default {
-  name: 'CaseStudy3',
+  name: 'CaseStudy4',
   methods: {
     next: function () {
       this.$emit('next')
@@ -36,9 +37,7 @@ export default {
   @import '~@/variables.scss'
   .page
     min-height: 100vh
-    background: linear-gradient(135deg, $white 25%, transparent 25%) -50px 0, linear-gradient(225deg, $white 25%, transparent 25%) -50px 0, linear-gradient(315deg, $white 25%, transparent 25%), linear-gradient(45deg, $white 25%, transparent 25%)
-    background-size: 100px 100px
-    background-color: desaturate(lighten($lightblue, 50%), 40%)
+    background: $red
     padding: 100px 30px 160px 30px
     @media (max-width: $mobile)
       padding: 70px 15px 100px 15px
@@ -49,13 +48,13 @@ export default {
     letter-spacing: 3px
     font-size: 28px
     line-height: 1
-    color: saturate(lighten($orange, 15%), 30%)
+    color: $white
     margin-bottom: 15px
   p.subtitle
     text-transform: uppercase
     padding: 5px 10px
-    background: white
-    color: $darkblue
+    background: black
+    color: white
     margin-bottom: 40px
     display: inline-block
     font: 300 14px 'Oswald', sans-serif
@@ -76,7 +75,9 @@ export default {
     display: flex
     @media (max-width: $mobile)
       flex-wrap: wrap
+      flex-direction: column-reverse
       padding: 30px
+
     p
       font-size: 18px
       line-height: 1.6
@@ -87,7 +88,7 @@ export default {
         font-size: 12px
         line-height: 1.4
     .right
-      flex: 0 0 38%
+      flex: 0 0 57%
       margin-left: 5%
       @media (max-width: $mobile)
         flex: 0 0 100%
@@ -105,10 +106,11 @@ export default {
         width: 100%
         height: 100%
     .left
-      flex: 0 0 57%
+      flex: 0 0 38%
       position: relative
       @media (max-width: $mobile)
         flex: 0 0 100%
+        margin-bottom: 30px
       img
         max-width: 100%
   button.next-page
@@ -117,15 +119,17 @@ export default {
     padding: 15px 30px
     background: $lightblue
     color: $white
-    margin-top: 60px
+    margin-top: 30px
     text-transform: uppercase
     font: 500 18px 'Oswald', sans-serif
     letter-spacing: 2px
     border: 3px solid $white
-    box-shadow: 0 2px 2px 2px rgba(0,0,0,0.05)
+    box-shadow: 0 2px 2px 2px rgba(0,0,0,0.1)
     transition: all 0.3s ease
     margin-left: auto
     margin-right: auto
+    @media (max-width: $mobile)
+      margin-bottom: 50px
     display: block
     &:hover
       background: darken($lightblue, 10%)

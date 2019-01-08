@@ -7,7 +7,8 @@
 
       p The tech involved is Vue.js for the single page application handling and routing, and Webpack for packaging it all up.  Pug/Jade was used for cleaner HTML templating.  I've made my GitHub repo available here:
 
-      a(href="http://www.justinburrow.com/static-files/checkout-v2-attribution.pdf" target="_blank") View GitHub Repo for this deck
+      p
+        a(href="http://www.justinburrow.com/static-files/checkout-v2-attribution.pdf" target="_blank") View GitHub Repo for this deck
 
       p My contact information and downloadable .pdf resume is included below.  Thanks again, and I look forward to hearing from you soon.
 
