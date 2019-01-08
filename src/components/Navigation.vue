@@ -70,6 +70,10 @@ export default {
       box-shadow: 0 0 0 2px rgba(255, 255, 255, 0)
       -webkit-transition: box-shadow 0.3s ease
       transition: box-shadow 0.3s ease
+      @media (max-width: $mobile)
+        width: 8px
+        height: 8px
+        margin: 0 13px
       p
         font-size: 10px
         text-transform: uppercase
