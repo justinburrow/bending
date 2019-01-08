@@ -5,11 +5,13 @@
       h2 Thanks for your time.
       p Resumes and portfolios are great, but I wanted to take the time to package up something that showcased all the elements that I think are important in the role that you are looking to staff for.  My hope is that this digital presentation was successful in demonstrating my ability to execute creative solutions.
 
-      p On a technical note for what it's worth, this was designed and built in two days over Martin Luther King, Jr. weekend.  The tech involved is Vue.js for the single page application handling and routing, and Webpack for packaging it all up.
+      p The tech involved is Vue.js for the single page application handling and routing, and Webpack for packaging it all up.  Pug/Jade was used for cleaner HTML templating.  I've made my GitHub repo available here:
+
+      a(href="http://www.justinburrow.com/static-files/checkout-v2-attribution.pdf" target="_blank") View GitHub Repo for this deck
 
       p My contact information and downloadable .pdf resume is included below.  Thanks again, and I look forward to hearing from you soon.
 
-      p #[a.resume(href="http://www.justinburrow.com/static-files/resume-jburrow-2018.pdf" target="_blank") #[img.document(src="~@/assets/document.svg")]#[span.bold Download My Resume]]
+      p #[a.resume(href="http://www.justinburrow.com/static-files/resume-jburrow-2019.pdf" target="_blank") #[img.document(src="~@/assets/document.svg")]#[span.bold Download My Resume]]
 
       div.contact
         p

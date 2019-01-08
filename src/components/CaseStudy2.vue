@@ -1,19 +1,24 @@
 <template lang="pug">
   .page
-    h1 Case Study #2 - Inline Quick View
-    p.subtitle UX / UI / Product Management / Interaction Design
-    .content
-      .left
-        p During a period of roadmapping tech strategy at Beautycounter, I realized we were looking at two years of work that didn't include one bit of a facelift to our current site - which I had found less than stellar from the get-go.  I find often that it's better to show rather than tell when you're trying to articulate the importance of a particular initiative, so I put together a small team to begin working on a redesign proof-of-concept, to show how much more elevated of a site we could have if we invested the resources.
+    h1 Case Study #2 - Bundling
+    p.subtitle Marketing / Product Management / Front End Engineering / UX / UI
+      .content
+        .left
+          p
+            a(href="https://genexalift.myshopify.com/collections/cold-flu-bundle" target="_blank") "Collections" Bundling
+          p
+            a(href="https://github.com/justinburrow/bndl-app" target="_blank") Bundle App WIP Repo
+        .right
+          p It's very "of the moment" to consider a recurring charge subscription program for ecommerce.  Amazon does it, as do many other retailers.  However, I believe it's important to consider the nature of the product and whether it warrants a monthly subscription plan, otherwise there can be a risk run of enticing people with an initial discount on a recurring charge that becomes a nuisance, or at worst, a feeling of being taken advantage of.
 
-        p As part of this, I considered the tech stack we were on, and decided to try to imagine an eCommerce flow as a single page app - no page reloads, no site slowness.  While we were wireframing this, I realized that it made the concept of a Category page as a means to get to a Product page somewhat irrelevant.  Part of this came with how we designed the Quick View experience.
+          p Initially, the program looked like the common "Subscribe Monthly and Save ____%".  After investigation, I noticed that most of our online orders were single unit and not repeat, so it seemed that there as opportunity to rethink the subscription strategy.  On one level, it was working for us, as we were well above 2 subscription orders on average, but I felt the concept could be crafted in a way that told the brand story better.
 
-        p This isn't a new feature by any means - usually it's a modal window that pops when you click "more details" from a category landing page.  But we wanted to do something that had a more sophisticated interaction - even if subtle - to further push the idea of the sophistication of the brand.
+          p My idea:  3 or more products, 30% off - with all the subscription amenities: change any item, pause any item, add, cancel.  The UI would live on a dedicated page so that the PDP was not cluttered with extraneous subcription information and UI - a simple callout to "Save 30% when you subscribe to your GenexaBox" (working title).
 
-        p.note Note: The feature is not currently live, so this video is taken from one of our staging environments.
-      .right
-        .video-container
-          iframe(src="https://www.youtube.com/embed/2z-GexHyyl0?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen)
+          p Unfortunately, as I was the sole resource and other initiatives around other channels continued to take priority, we never were able to launch this feature.  I've added a link to the GitHub for the WIP that would have become the "bundling app".  We did roll out a custom bundle-by-collection feature using Vue.js to capture user interaction which is shown as a link to a testing site on this page.
+
+          p The relevance for Manduka is that this was a custom feature that I designed, coded, and tested using nothing but Shopify and Recharge (for the recurring subscription feature), and wrote all the JS to execute these features.
+
     button.next-page(v-on:click="next")
       span.up-next Up Next:
       span {{ nextPage }}
@@ -25,7 +30,6 @@ export default {
   methods: {
     next: function () {
       this.$emit('next')
-      this.nextTitle()
     }
   },
   props: {
@@ -37,10 +41,8 @@ export default {
 <style scoped lang="sass">
   @import '~@/variables.scss'
   .page
-    height: 100%
-    background: linear-gradient(135deg, $white 25%, transparent 25%) -50px 0, linear-gradient(225deg, $white 25%, transparent 25%) -50px 0, linear-gradient(315deg, $white 25%, transparent 25%), linear-gradient(45deg, $white 25%, transparent 25%)
-    background-size: 100px 100px
-    background-color: desaturate(lighten($lightblue, 50%), 40%)
+    min-height: 100vh
+    background: desaturate(lighten($orange, 20%), 10%)
     padding: 100px 30px 160px 30px
     @media (max-width: $mobile)
       padding: 70px 15px 100px 15px
@@ -51,13 +53,13 @@ export default {
     letter-spacing: 3px
     font-size: 28px
     line-height: 1
-    color: saturate(lighten($orange, 15%), 30%)
+    color: darken(saturate($red, 10%), 10%)
     margin-bottom: 15px
   p.subtitle
     text-transform: uppercase
     padding: 5px 10px
-    background: white
-    color: $darkblue
+    background: black
+    color: white
     margin-bottom: 40px
     display: inline-block
     font: 300 14px 'Oswald', sans-serif
@@ -78,6 +80,7 @@ export default {
     display: flex
     @media (max-width: $mobile)
       flex-wrap: wrap
+      flex-direction: column-reverse
       padding: 30px
     p
       font-size: 18px
@@ -85,34 +88,28 @@ export default {
       margin-bottom: 30px
       @media (max-width: $mobile)
         font-size: 14px
+      .bold
+        font-weight: bold
       &.note
         font-size: 12px
         line-height: 1.4
     .right
-      flex: 0 0 38%
+      flex: 0 0 57%
       margin-left: 5%
       @media (max-width: $mobile)
         flex: 0 0 100%
         margin-left: 0
-    .video-container
-      position: relative
-      padding-bottom: 56.25%
-      height: 0
-      overflow: hidden
-      margin-bottom: 60px
-      iframe
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
     .left
-      flex: 0 0 57%
+      flex: 0 0 38%
       position: relative
+      text-align: center
       @media (max-width: $mobile)
         flex: 0 0 100%
+        padding-top: 60px
       img
         max-width: 100%
+        &:first-child
+          margin-bottom: 50px
   button.next-page
     cursor: pointer
     outline: none
@@ -124,7 +121,7 @@ export default {
     font: 500 18px 'Oswald', sans-serif
     letter-spacing: 2px
     border: 3px solid $white
-    box-shadow: 0 2px 2px 2px rgba(0,0,0,0.05)
+    box-shadow: 0 2px 2px 2px rgba(0,0,0,0.1)
     transition: all 0.3s ease
     margin-left: auto
     margin-right: auto

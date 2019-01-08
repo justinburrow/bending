@@ -24,7 +24,7 @@
             li "Yeah, it might be ugly, but it converts 0.5% better, so let's make all the buttons zebra-striped"
             li "Bake all the text in the image - it's fine"
             li "Can't you just buy a theme?"
-            li "Let's just outsource it - I'm sure it'll come back exactly how we wanted it."
+            li "Let's just outsource it - I'm sure it'll come back exactly how we wanted it without anyone managing it."
       button.next-page(v-on:click="next")
         span.up-next Up Next:
         span {{ nextPage }}
@@ -48,7 +48,6 @@ export default {
   methods: {
     next: function () {
       this.$emit('next')
-      this.nextTitle()
     },
     start: function () {
       this.$emit('next')

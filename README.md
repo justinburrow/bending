@@ -1,4 +1,4 @@
-# joybird-jb
+# manduka-jb
 
 > A Vue.js project
 

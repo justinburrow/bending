@@ -9,14 +9,12 @@ export default {
   methods: {
     next: function () {
       this.$emit('next')
-      this.nextTitle()
     }
   },
   props: {
     nextPage: String
   },
-  mounted: function () {
-    this.nextTitle()
+  mounted () {
   }
 }
 </script>

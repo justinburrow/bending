@@ -10,7 +10,7 @@
           h2 UX
           ul
             li Wireframing
-            li Rapid Prototyping
+            li Rapid Prototyping & AB Testing
             li User Research
             li Interaction Design
         div
@@ -26,7 +26,7 @@
             li HTML / CSS / JS
             li SPA Frameworks / Headless
             li SEO Best Practices
-            li Wordpress
+            li Shopify / Magento
         div
           h2 Product Management
           ul
@@ -38,7 +38,7 @@
           h2 Data Analysis
           ul
             li Google Analytics
-            li Optimizely
+            li Optimizely / Google Optimize
             li Qualitative vs. Quantitative
             li Excel Data Manipulation
         div
@@ -71,7 +71,6 @@ export default {
   methods: {
     next: function () {
       this.$emit('next')
-      this.nextTitle()
     },
     start: function () {
       this.$emit('next')

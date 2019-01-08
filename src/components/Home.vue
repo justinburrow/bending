@@ -6,10 +6,10 @@
     .top-content(:class="{active: fadeIn}")
       .aligner
         .aligner-item
-          img(src="~@/assets/joybird.svg")
+          img(src="~@/assets/manduka-logo.png")
           <p>+</p>
           h1 Justin Burrow
-          p.subtitle as Lead Product Designer
+          p.subtitle as Web Developer + Product Designer
           button(v-on:click="start") Let's Explore This
 </template>
 
@@ -72,13 +72,13 @@ export default {
       opacity: 1 !important
     &.top
       z-index: 5
-      border-top: 100vh solid lighten($darkblue, 50%)
+      border-top: 100vh solid $white
       border-right: 100vh solid transparent
       transform: translateX(-100%)
       transition: .4s transform ease-out
     &.bottom
       z-index: 5
-      border-bottom: 100vh solid $white
+      border-bottom: 100vh solid lighten($darkblue, 40%)
       border-left: 100vh solid transparent
       transform: translateX(100%)
       transition: .4s transform ease-out
@@ -98,6 +98,8 @@ export default {
   .aligner-item
     max-width: 1600px
     text-align: center
+    img
+      margin-bottom: -35px
     @media (max-width: $mobile)
       img
         max-width: 80%
@@ -113,6 +115,7 @@ export default {
     font-weight: 500
     letter-spacing: 3px
     font-size: 32px
+    text-shadow: 2px 2px 0 rgba(255,255,255,0.5)
   .subtitle
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif
     font-size: 16px
@@ -120,11 +123,12 @@ export default {
     letter-spacing: 1px
     text-transform: none
     line-height: 2
+    font-weight: bold
   button
     cursor: pointer
     outline: none
     padding: 15px 30px
-    background: $lightblue
+    background: lighten($lightblue, 5%)
     color: $white
     margin-top: 8vh
     text-transform: uppercase

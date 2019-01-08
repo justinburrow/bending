@@ -1,23 +1,19 @@
 <template lang="pug">
   .page
-    h1 Case Study #3 - Branding
-    p.subtitle Graphic Design / Branding / Marketing
+    h1 Case Study #3 - Inline Quick View
+    p.subtitle UX / UI / Product Management / Interaction Design
     .content
       .left
-        img(src="~@/assets/old_card-1.jpg" alt="old business card")
-        img(src="~@/assets/just_luigis_logo-2x.png")
+        p During a period of roadmapping tech strategy at Beautycounter, I realized we were looking at two years of work that didn't include one bit of a facelift to our current site - which I had found less than stellar from the get-go.  I find often that it's better to show rather than tell when you're trying to articulate the importance of a particular initiative, so I put together a small team to begin working on a redesign proof-of-concept, to show how much more elevated of a site we could have if we invested the resources.
+
+        p As part of this, I considered the tech stack we were on, and decided to try to imagine an eCommerce flow as a single page app - no page reloads, no site slowness.  While we were wireframing this, I realized that it made the concept of a Category page as a means to get to a Product page somewhat irrelevant.  Part of this came with how we designed the Quick View experience.
+
+        p This isn't a new feature by any means - usually it's a modal window that pops when you click "more details" from a category landing page.  But we wanted to do something that had a more sophisticated interaction - even if subtle - to further push the idea of the sophistication of the brand.
+
+        p.note Note: The feature is not currently live, so this video is taken from one of our staging environments.
       .right
-        p Though it's not my primary skill in the digital world, I can execute some branding work when needed.  In this case, my mom decided to follow her husband's dream of opening a pizza shop.  I mostly stayed out of it, knowing how it typically goes when you do creative work for family and friends.  To my surprise, they actually did fairly well in their small neighborhood, so I stopped by to take a look and see if I could give them any branding or marketing advice.
-
-        p I was #[span.bold horrified] to see the collateral they were working with.  Not that I think there's anything wrong with a DIY mindset, but this was just borderline scary.  See first image.
-
-        p Considering it was for my mother, I decided to do some pro bono work for them to see if my efforts in brand identity had any measurable lift for their business.
-
-        p I created a new logo for them to start, which then informed the rest of their collateral: signage, interior design, website, menus.  The idea was to get to the core of what they wanted to sell: authentic, NY-style pizza, from a family-run (read: not corporate) business, slightly elevated.
-
-        p The logomark uses colors from the Italian flag, surrounded by the outline of a hand-thrown crust.  The typography is vaguely New York, and the handdrawn feel looks to articulate the homemade proposition they wanted to convey.
-
-        p While we never did get around to analyzing revenue metrics, their new brand identity and collateral certainly created a different feel - they soon after expanded patio space into the front of their restaurant, which led to more families coming in for dinner.  Prior, it had been a quick grab-a-slice lunch spot during the weekdays, and after, it seemed like much more of a neighborhood joint that people enjoyed spending time at.
+        .video-container
+          iframe(src="https://www.youtube.com/embed/2z-GexHyyl0?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen)
     button.next-page(v-on:click="next")
       span.up-next Up Next:
       span {{ nextPage }}
@@ -29,7 +25,6 @@ export default {
   methods: {
     next: function () {
       this.$emit('next')
-      this.nextTitle()
     }
   },
   props: {
@@ -41,8 +36,10 @@ export default {
 <style scoped lang="sass">
   @import '~@/variables.scss'
   .page
-    height: 100%
-    background: desaturate(lighten($orange, 20%), 10%)
+    min-height: 100vh
+    background: linear-gradient(135deg, $white 25%, transparent 25%) -50px 0, linear-gradient(225deg, $white 25%, transparent 25%) -50px 0, linear-gradient(315deg, $white 25%, transparent 25%), linear-gradient(45deg, $white 25%, transparent 25%)
+    background-size: 100px 100px
+    background-color: desaturate(lighten($lightblue, 50%), 40%)
     padding: 100px 30px 160px 30px
     @media (max-width: $mobile)
       padding: 70px 15px 100px 15px
@@ -53,13 +50,13 @@ export default {
     letter-spacing: 3px
     font-size: 28px
     line-height: 1
-    color: darken(saturate($red, 10%), 10%)
+    color: saturate(lighten($orange, 15%), 30%)
     margin-bottom: 15px
   p.subtitle
     text-transform: uppercase
     padding: 5px 10px
-    background: black
-    color: white
+    background: white
+    color: $darkblue
     margin-bottom: 40px
     display: inline-block
     font: 300 14px 'Oswald', sans-serif
@@ -80,7 +77,6 @@ export default {
     display: flex
     @media (max-width: $mobile)
       flex-wrap: wrap
-      flex-direction: column-reverse
       padding: 30px
     p
       font-size: 18px
@@ -88,28 +84,34 @@ export default {
       margin-bottom: 30px
       @media (max-width: $mobile)
         font-size: 14px
-      .bold
-        font-weight: bold
       &.note
         font-size: 12px
         line-height: 1.4
     .right
-      flex: 0 0 57%
+      flex: 0 0 38%
       margin-left: 5%
       @media (max-width: $mobile)
         flex: 0 0 100%
         margin-left: 0
-    .left
-      flex: 0 0 38%
+    .video-container
       position: relative
-      text-align: center
+      padding-bottom: 56.25%
+      height: 0
+      overflow: hidden
+      margin-bottom: 60px
+      iframe
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+    .left
+      flex: 0 0 57%
+      position: relative
       @media (max-width: $mobile)
         flex: 0 0 100%
-        padding-top: 60px
       img
         max-width: 100%
-        &:first-child
-          margin-bottom: 50px
   button.next-page
     cursor: pointer
     outline: none
@@ -121,7 +123,7 @@ export default {
     font: 500 18px 'Oswald', sans-serif
     letter-spacing: 2px
     border: 3px solid $white
-    box-shadow: 0 2px 2px 2px rgba(0,0,0,0.1)
+    box-shadow: 0 2px 2px 2px rgba(0,0,0,0.05)
     transition: all 0.3s ease
     margin-left: auto
     margin-right: auto

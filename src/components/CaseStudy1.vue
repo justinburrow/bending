@@ -1,21 +1,22 @@
 <template lang="pug">
   .page
-    h1 Case Study #1 - Checkout
-    p.subtitle UX / Product Management
+    h1 Case Study #1 - Shopify Mobile Redesign
+    p.subtitle UX / UI / Front End Engineering
     .content
       .left
-        .video-container
-          iframe(src="http://www.youtube.com/embed/1Hj0cC9FaJA?rel=0" frameborder="0" allowfullscreen="")
-        a(href="~@/assets/magento_checkout_UX.pdf" target="_blank")
-          img(src="~@/assets/checkout-wireframe-thumb.gif" alt="Checkout Wireframe Thumbnail")
+        p
+          a(href="http://www.justinburrow.com/static-files/before-mobile.jpg" target="_blank") "Before" Mobile Layout
+        p
+          a(href="http://www.justinburrow.com/static-files/homepage-v3.jpg" target="_blank") Redesigned Mobile Layout
       .right
-        p During my time at LD Products, I rose through the ranks from a production artist / web designer to being the acting on-site art director, Sr. Front End Engineer, as well as the sole User Experience advocate.  The design process was usually something like this: the CEO would have an idea he felt was worth following, or hear a loud enough complaint.  He'd then task the Creative Director with solving it, and either the Creative Director or the design team would immediately open Photoshop.  No wireframes, user research, qualitative/quantitative data - just straight into design.
+        p When I started at Genexa, the design direction of the site had been touched by many hands without an overarching strategy.  As our traffic was primarily mobile, I redesigned the overall layout and look and feel with elements that presented the information in ways that were more easily digestible.
 
-        p When we realized we were leaving a lot of money on the table with a bad checkout experience, I asked to champion it with what I saw as a way to better use data to inform our decisions.  I consulted Baymard research on eCommerce checkout metrics, wireframed a few options, thought through the interaction design, and landed on this.  We went from a "One Page Checkout" (which took far longer than necessary to complete), to a multi-step - but still one "page" - checkout concept, where the user only focused on the immediately relevant chunks of information to complete the task.
+        p The first order of business was to put emphasis on the brand and product, and allow for the user to take a deeper dive into more information as they chose, while the primary selling points were at a glance.
 
-        p To the left, I've attached a video comparing the two experiences, as well as a downloadable PDF deck of my interactive UX wireframes.
+        p Consolidating a swipable slider to show the breadth of the product catalog was also paramount, rather than having it split across various vertical sections of the scrollable area.
 
-        p.note Note: The video displays an extremely slow speed - this video was captured before the new checkout launched, running on a local machine - void of all caching and other speed enhancements.  Not reflective of a production environment.
+        p Most importantly, the top level product categories were brought up to a sticky header, allowing users to discover the range of products that Genexa carried.  These screenshots show a before and after; the "after" is still in use today.
+
     button.next-page(v-on:click="next")
       span.up-next Up Next:
       span {{ nextPage }}
@@ -27,7 +28,6 @@ export default {
   methods: {
     next: function () {
       this.$emit('next')
-      this.nextTitle()
     }
   },
   props: {
@@ -39,8 +39,8 @@ export default {
 <style scoped lang="sass">
   @import '~@/variables.scss'
   .page
-    height: 100%
-    background: $red
+    min-height: 100vh
+    background: desaturate(lighten($lightgreen, 20%), 10%)
     padding: 100px 30px 160px 30px
     @media (max-width: $mobile)
       padding: 70px 15px 100px 15px
@@ -51,7 +51,7 @@ export default {
     letter-spacing: 3px
     font-size: 28px
     line-height: 1
-    color: $white
+    color: darken(saturate($lightblue, 10%), 10%)
     margin-bottom: 15px
   p.subtitle
     text-transform: uppercase
@@ -80,13 +80,14 @@ export default {
       flex-wrap: wrap
       flex-direction: column-reverse
       padding: 30px
-
     p
       font-size: 18px
       line-height: 1.6
       margin-bottom: 30px
       @media (max-width: $mobile)
         font-size: 14px
+      .bold
+        font-weight: bold
       &.note
         font-size: 12px
         line-height: 1.4
@@ -96,33 +97,24 @@ export default {
       @media (max-width: $mobile)
         flex: 0 0 100%
         margin-left: 0
-    .video-container
-      position: relative
-      padding-bottom: 56.25%
-      height: 0
-      overflow: hidden
-      margin-bottom: 60px
-      iframe
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
     .left
       flex: 0 0 38%
       position: relative
+      text-align: center
       @media (max-width: $mobile)
         flex: 0 0 100%
-        margin-bottom: 30px
+        padding-top: 60px
       img
         max-width: 100%
+        &:first-child
+          margin-bottom: 50px
   button.next-page
     cursor: pointer
     outline: none
     padding: 15px 30px
     background: $lightblue
     color: $white
-    margin-top: 30px
+    margin-top: 60px
     text-transform: uppercase
     font: 500 18px 'Oswald', sans-serif
     letter-spacing: 2px
@@ -131,8 +123,6 @@ export default {
     transition: all 0.3s ease
     margin-left: auto
     margin-right: auto
-    @media (max-width: $mobile)
-      margin-bottom: 50px
     display: block
     &:hover
       background: darken($lightblue, 10%)
