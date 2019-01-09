@@ -6,7 +6,7 @@
         h2 Hi, I'm Justin.
         p I've been working in digital design for over 15 years -  as a web designer, production artist, front end engineer, art director, acting product manager, and director of User Experience/User Interface Design.  My positions have spanned everything from 15 person t-shirt companies in the warehouse storage of a print shop, to 500 employee overgrown-startups-gone-corporate like The Honest Company.
 
-        p It sounds like Manduka is looking to staff a role that would benefit from the breadth of experience I've been fortunate to accumulate throughout my career.
+        p It sounds like Bending Spoons is looking to staff a role that would benefit from the breadth of experience I've been fortunate to accumulate throughout my career.
 
         p I've put together some information about my skill set and what I'm looking for, as well as some case study examples of my work to hopefully provide you with enough information to get a sense of whether I'd be a great fit for this position.
 

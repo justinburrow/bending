@@ -1,4 +1,4 @@
-# manduka-jb
+# bendingspoons-jb
 
 > A Vue.js project
 

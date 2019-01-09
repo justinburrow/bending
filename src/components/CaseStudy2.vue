@@ -17,7 +17,7 @@
 
           p Unfortunately, as I was the sole resource and other initiatives around other channels continued to take priority, we never were able to launch this feature.  I've added a link to the GitHub for the WIP that would have become the "bundling app".  We did roll out a custom bundle-by-collection feature using Vue.js to capture user interaction which is shown as a link to a testing site on this page.
 
-          p The relevance for Manduka is that this was a custom feature that I designed, coded, and tested using nothing but Shopify and Recharge (for the recurring subscription feature), and wrote all the JS to execute these features.
+          p The relevance for Bending Spoons is that this was a custom feature that I designed, coded, and tested using nothing but Shopify and Recharge (for the recurring subscription feature), and wrote all the JS to execute these features.
 
     button.next-page(v-on:click="next")
       span.up-next Up Next:

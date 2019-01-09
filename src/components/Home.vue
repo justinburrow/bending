@@ -6,10 +6,10 @@
     .top-content(:class="{active: fadeIn}")
       .aligner
         .aligner-item
-          img(src="~@/assets/manduka-logo.png")
+          img(src="~@/assets/bendingspoons-logo.png")
           <p>+</p>
           h1 Justin Burrow
-          p.subtitle as Web Developer + Product Designer
+          p.subtitle as Front End Developer + Designer
           button(v-on:click="start") Let's Explore This
 </template>
 
@@ -72,13 +72,13 @@ export default {
       opacity: 1 !important
     &.top
       z-index: 5
-      border-top: 100vh solid $white
+      border-top: 100vh solid lighten($darkblue, 40%)
       border-right: 100vh solid transparent
       transform: translateX(-100%)
       transition: .4s transform ease-out
     &.bottom
       z-index: 5
-      border-bottom: 100vh solid lighten($darkblue, 40%)
+      border-bottom: 100vh solid $white
       border-left: 100vh solid transparent
       transform: translateX(100%)
       transition: .4s transform ease-out
@@ -98,8 +98,6 @@ export default {
   .aligner-item
     max-width: 1600px
     text-align: center
-    img
-      margin-bottom: -35px
     @media (max-width: $mobile)
       img
         max-width: 80%

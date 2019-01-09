@@ -8,7 +8,7 @@
       p The tech involved is Vue.js for the single page application handling and routing, and Webpack for packaging it all up.  Pug/Jade was used for cleaner HTML templating.  I've made my GitHub repo available here:
 
       p
-        a(href="https://github.com/justinburrow/md-deck" target="_blank") View GitHub Repo for this deck
+        a(href="https://github.com/justinburrow/bending" target="_blank") View GitHub Repo for this deck
 
       p My contact information and downloadable .pdf resume is included below.  Thanks again, and I look forward to hearing from you soon.
 
